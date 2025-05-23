@@ -1,83 +1,70 @@
-<picture>
-  <source media="(prefers-color-scheme: light)" srcset="docs/static/img/logo-dark.svg">
-  <source media="(prefers-color-scheme: dark)" srcset="docs/static/img/logo-light.svg">
-  <img alt="LangChain Logo" src="docs/static/img/logo-dark.svg" width="80%">
-</picture>
+# langchain-groq
 
-<div>
-<br>
-</div>
+## Welcome to Groq! 🚀
 
-[![Release Notes](https://img.shields.io/github/release/langchain-ai/langchain?style=flat-square)](https://github.com/langchain-ai/langchain/releases)
-[![CI](https://github.com/langchain-ai/langchain/actions/workflows/check_diffs.yml/badge.svg)](https://github.com/langchain-ai/langchain/actions/workflows/check_diffs.yml)
-[![PyPI - License](https://img.shields.io/pypi/l/langchain-core?style=flat-square)](https://opensource.org/licenses/MIT)
-[![PyPI - Downloads](https://img.shields.io/pypi/dm/langchain-core?style=flat-square)](https://pypistats.org/packages/langchain-core)
-[![GitHub star chart](https://img.shields.io/github/stars/langchain-ai/langchain?style=flat-square)](https://star-history.com/#langchain-ai/langchain)
-[![Open Issues](https://img.shields.io/github/issues-raw/langchain-ai/langchain?style=flat-square)](https://github.com/langchain-ai/langchain/issues)
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode&style=flat-square)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/langchain-ai/langchain)
-[<img src="https://github.com/codespaces/badge.svg" title="Open in Github Codespace" width="150" height="20">](https://codespaces.new/langchain-ai/langchain)
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/langchainai.svg?style=social&label=Follow%20%40LangChainAI)](https://twitter.com/langchainai)
-[![CodSpeed Badge](https://img.shields.io/endpoint?url=https://codspeed.io/badge.json)](https://codspeed.io/langchain-ai/langchain)
+At Groq, we've developed the world's first Language Processing Unit™, or LPU. The Groq LPU has a deterministic, single core streaming architecture that sets the standard for GenAI inference speed with predictable and repeatable performance for any given workload.
 
-> [!NOTE]
-> Looking for the JS/TS library? Check out [LangChain.js](https://github.com/langchain-ai/langchainjs).
+Beyond the architecture, our software is designed to empower developers like you with the tools you need to create innovative, powerful AI applications. With Groq as your engine, you can:
 
-LangChain is a framework for building LLM-powered applications. It helps you chain
-together interoperable components and third-party integrations to simplify AI
-application development —  all while future-proofing decisions as the underlying
-technology evolves.
+* Achieve uncompromised low latency and performance for real-time AI and HPC inferences 🔥
+* Know the exact performance and compute time for any given workload 🔮
+* Take advantage of our cutting-edge technology to stay ahead of the competition 💪
+
+Want more Groq? Check out our [website](https://groq.com) for more resources and join our [Discord community](https://discord.gg/JvNsBDKeCG) to connect with our developers!
+
+
+## Installation and Setup
+Install the integration package:
 
 ```bash
-pip install -U langchain
+pip install langchain-groq
 ```
 
-To learn more about LangChain, check out
-[the docs](https://python.langchain.com/docs/introduction/). If you’re looking for more
-advanced customization or agent orchestration, check out
-[LangGraph](https://langchain-ai.github.io/langgraph/), our framework for building
-controllable agent workflows.
+Request an [API key](https://console.groq.com/login?utm_source=langchain&utm_content=package_readme) and set it as an environment variable
 
-## Why use LangChain?
+```bash
+export GROQ_API_KEY=gsk_...
+```
 
-LangChain helps developers build applications powered by LLMs through a standard
-interface for models, embeddings, vector stores, and more. 
+## Chat Model
+See a [usage example](https://python.langchain.com/docs/integrations/chat/groq).
 
-Use LangChain for:
-- **Real-time data augmentation**. Easily connect LLMs to diverse data sources and
-external / internal systems, drawing from LangChain’s vast library of integrations with
-model providers, tools, vector stores, retrievers, and more.
-- **Model interoperability**. Swap models in and out as your engineering team
-experiments to find the best choice for your application’s needs. As the industry
-frontier evolves, adapt quickly — LangChain’s abstractions keep you moving without
-losing momentum.
+## Development
 
-## LangChain’s ecosystem
-While the LangChain framework can be used standalone, it also integrates seamlessly
-with any LangChain product, giving developers a full suite of tools when building LLM
-applications. 
+To develop the `langchain-groq` package, you'll need to follow these instructions:
 
-To improve your LLM application development, pair LangChain with:
+### Install dev dependencies
 
-- [LangSmith](http://www.langchain.com/langsmith) - Helpful for agent evals and
-observability. Debug poor-performing LLM app runs, evaluate agent trajectories, gain
-visibility in production, and improve performance over time.
-- [LangGraph](https://langchain-ai.github.io/langgraph/) - Build agents that can
-reliably handle complex tasks with LangGraph, our low-level agent orchestration
-framework. LangGraph offers customizable architecture, long-term memory, and
-human-in-the-loop workflows — and is trusted in production by companies like LinkedIn,
-Uber, Klarna, and GitLab.
-- [LangGraph Platform](https://langchain-ai.github.io/langgraph/concepts/#langgraph-platform) - Deploy
-and scale agents effortlessly with a purpose-built deployment platform for long
-running, stateful workflows. Discover, reuse, configure, and share agents across
-teams — and iterate quickly with visual prototyping in
-[LangGraph Studio](https://langchain-ai.github.io/langgraph/concepts/langgraph_studio/).
+```bash
+uv sync --group lint --group test
+```
 
-## Additional resources
-- [Tutorials](https://python.langchain.com/docs/tutorials/): Simple walkthroughs with
-guided examples on getting started with LangChain.
-- [How-to Guides](https://python.langchain.com/docs/how_to/): Quick, actionable code
-snippets for topics such as tool calling, RAG use cases, and more.
-- [Conceptual Guides](https://python.langchain.com/docs/concepts/): Explanations of key
-concepts behind the LangChain framework.
-- [API Reference](https://python.langchain.com/api_reference/): Detailed reference on
-navigating base packages and integrations for LangChain.
+### Build the package
+
+```bash
+uv build
+```
+
+### Run unit tests
+
+Unit tests live in `tests/unit_tests` and SHOULD NOT require an internet connection or a valid API KEY.  Run unit tests with
+
+```bash
+make tests
+```
+
+### Run integration tests
+
+Integration tests live in `tests/integration_tests` and require a connection to the Groq API and a valid API KEY.
+
+```bash
+make integration_tests
+```
+
+### Lint & Format
+
+Run additional tests and linters to ensure your code is up to standard.
+
+```bash
+make lint spell_check check_imports
+```
