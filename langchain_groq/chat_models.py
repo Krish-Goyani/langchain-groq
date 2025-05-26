@@ -336,7 +336,7 @@ class ChatGroq(BaseChatModel):
     # [httpx documentation](https://www.python-httpx.org/api/#client) for more details.
     http_client: Union[Any, None] = httpx.Client(verify=False)
     """Optional httpx.Client."""
-    http_async_client: Union[Any, None] = httpx.AsyncClient(verify=False)
+    http_async_client: Union[Any, None] =httpx.AsyncClient(verify=False)
     """Optional httpx.AsyncClient. Only used for async invocations. Must specify
         http_client as well if you'd like a custom client for sync invocations."""
 
@@ -399,13 +399,13 @@ class ChatGroq(BaseChatModel):
         try:
             import groq
 
-            sync_specific: dict[str, Any] = {"http_client": self.http_client}
+            sync_specific: dict[str, Any] = {"http_client": httpx.Client(verify=False)}
             if not self.client:
                 self.client = groq.Groq(
                     **client_params, **sync_specific
                 ).chat.completions
             if not self.async_client:
-                async_specific: dict[str, Any] = {"http_client": self.http_async_client}
+                async_specific: dict[str, Any] = {"http_client": httpx.AsyncClient(verify=False)}
                 self.async_client = groq.AsyncGroq(
                     **client_params, **async_specific
                 ).chat.completions
